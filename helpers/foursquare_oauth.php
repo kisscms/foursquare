@@ -1,6 +1,6 @@
 <?php
 // FIX - to include the base OAuth lib not in alphabetical order
-require_once( realpath("../") . "/app/plugins/oauth/helpers/kiss_oauth.php" );
+require_once( getPath("oauth/helpers/kiss_oauth.php") );
 
 /* Discus for KISSCMS */
 class Foursquare_OAuth extends KISS_OAuth_v2 {
@@ -38,3 +38,5 @@ class Foursquare_OAuth extends KISS_OAuth_v2 {
 	}
 	
 }
+
+?>

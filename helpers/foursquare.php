@@ -1,6 +1,6 @@
 <?php
 // FIX - force include the Remote API lib if not available...
-require_once( realpath("../") . "/app/plugins/api/helpers/remote_api.php" );
+require_once( getPath("api/helpers/remote_api.php") );
 
 /* LinkedIn for KISSCMS */
 class Foursquare extends Remote_API {
