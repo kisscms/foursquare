@@ -33,8 +33,9 @@ class Foursquare_OAuth extends KISS_OAuth_v2 {
 		//$foursquare = new Foursquare();
 		//$foursquare->deleteCache();
 		
-		// save to the user session 
-		$_SESSION['oauth']['foursquare'] = $response;
+		// save to the user session (decode string and produce an array)
+		$_SESSION['oauth']['foursquare'] = (array) json_decode($response);
+		
 	}
 	
 }
