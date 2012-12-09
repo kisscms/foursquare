@@ -29,21 +29,25 @@ class Foursquare extends Remote_API {
 		$url = $this->api . $service;
 		// add access token
 		$params["oauth_token"] = $this->creds["access_token"];
+		// add version (latest date)
+		$params["v"] = date("Ymd");
 		
-		$request = $this->oauth->request($url, $method, $params);
+		$http = new Http();
+		$http->setMethod($method);
+		$http->setParams( $params );
+		$http->execute( $url );
+		
+		if($http->error) die($http->error);
 		
 		// decode json string as a php object
-		$results = json_decode($request);
+		$results = json_decode($http->result);
 		// check if the response if valid
-		$valid = ( !empty($results['meta']['code']) && $results['meta']['code'] == 200 );
-		
-		
-		var_dump($results);
+		$valid = ( !empty($results->meta->code) && $results->meta->code == 200 );
 		
 		// log errors...
 		
 		// just return the repsonse (or the whole response to display error messages
-		return ($valid) ? $request['response'] : $request;
+		return ($valid) ? $results->response : $results;
 		
 	}
 	
