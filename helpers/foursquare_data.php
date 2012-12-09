@@ -18,7 +18,7 @@ class Foursquare_Data extends REST_Service {
 	
 	function index( $params ) {
 		// get the path 
-		$path =  str_replace("/index.php/data/", "", $_SERVER['PHP_SELF']);
+		$path =  str_replace(WEB_FOLDER."index.php/data/", "", $_SERVER['PHP_SELF']);
 		// pop the first pair in the params
 		array_shift( $params );
 		
