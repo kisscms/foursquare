@@ -28,7 +28,7 @@ class Foursquare extends Remote_API {
 		
 		$url = $this->api . $service;
 		// add access token
-		$params["oauth_token"] = $this->creds["access_token"];
+		if( empty($params["oauth_token"]) ) $params["oauth_token"] = $this->creds["access_token"];
 		// add version (latest date)
 		$params["v"] = date("Ymd");
 		
