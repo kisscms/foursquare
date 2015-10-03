@@ -1,8 +1,5 @@
 <?php
 
-// FIX - force include the base class
-require_once( getPath("api/helpers/rest_service.php") );
-
 // load the data of a file or user...
 class Foursquare_Data extends REST_Service {
 	
