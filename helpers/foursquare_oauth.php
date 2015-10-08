@@ -2,7 +2,7 @@
 // FIX - to include the base OAuth lib not in alphabetical order
 require_once( getPath("oauth/helpers/kiss_oauth.php") );
 
-/* Discus for KISSCMS */
+/* Foursquare for KISSCMS */
 class Foursquare_OAuth extends KISS_OAuth_v2 {
 
 	function  __construct( $api="foursquare", $url="https://foursquare.com/oauth2" ) {

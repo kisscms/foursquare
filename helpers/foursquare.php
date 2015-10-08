@@ -2,7 +2,7 @@
 // FIX - force include the Remote API lib if not available...
 require_once( getPath("api/helpers/remote_api.php") );
 
-/* LinkedIn for KISSCMS */
+/* Foursquare for KISSCMS */
 class Foursquare extends Remote_API {
 
 	public $name = "foursquare";
