@@ -1,17 +1,29 @@
 <?php
 
-
 //===============================================
 // Configuration
 //===============================================
 
-if( class_exists('Config') && method_exists(new Config(),'register')){ 
+// local scope...
+function foursquare_init() {
 
-	// Register variables
-	Config::register("foursquare", "key", "0000000");
-	Config::register("foursquare", "secret", "AAAAAAAAA");
-	Config::register("foursquare", "client_auth", 0);
-
+	// schema / defaults
+	$config = array(
+		"key" => "0000000",
+		"secret" => "AAAAAAAAA",
+		"client_auth" => 0
+	);
+	// register config
+	if( function_exists("config") ) {
+		config("foursquare", $config);
+	} elseif( class_exists('Config') && method_exists(new Config(),'register')) {
+		// backwards compatibility
+		Config::register("foursquare", "key", $config['key']);
+		Config::register("foursquare", "secret", $config['secret']);
+		Config::register("foursquare", "client_auth", $config['client_auth']);
+	}
 }
+
+foursquare_init();
 
 ?>
